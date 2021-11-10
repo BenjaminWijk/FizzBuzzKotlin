@@ -1,7 +1,7 @@
 import java.lang.IllegalArgumentException
 
 class FizzBuzz(
-    val gameLength: Int = 15,
+    val gameLength: Int = 100,
     useDefaultRules: Boolean = true
 ) {
 

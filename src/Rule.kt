@@ -1,0 +1,1 @@
+data class Rule(val output: (Int) -> String, val predicate: (Int) -> Boolean)

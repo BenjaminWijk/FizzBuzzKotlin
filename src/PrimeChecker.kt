@@ -9,7 +9,7 @@ object PrimeChecker {
 
     fun check(i: Int): Boolean {
         if (knownPrimes.contains(i)) return true
-        if (i < largestKnown) return false
+        if (i <= largestResolvedValue) return false
 
         for(n in largestKnown until i){
             resolveNext()

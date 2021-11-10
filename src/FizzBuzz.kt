@@ -10,15 +10,16 @@ class FizzBuzz(
     }
 
     companion object {
-        val defaultRules = listOf(
+        val defaultRules = arrayOf(
             Rule({ "Fizz" }, { it % 3 == 0 }),
             Rule({ "Buzz" }, { it % 5 == 0 })
         )
     }
 
-    private val rules: MutableList<Rule> = mutableListOf<Rule>().also {
-        if (useDefaultRules) it.addAll(defaultRules)
-    }
+    private val rules: MutableList<Rule> = if(useDefaultRules)
+        mutableListOf(*defaultRules)
+    else
+        mutableListOf()
 
     fun addRules(vararg rules: Rule) = this.rules.addAll(rules)
 
@@ -26,8 +27,8 @@ class FizzBuzz(
         for (i in 1..gameLength) {
             var lineOutput = ""
 
-            rules.forEach {
-                if (it.predicate(i)) lineOutput += it.output(i)
+            rules.applyEach {
+                if(predicate(i)) lineOutput += output(i)
             }
 
             if (lineOutput.isEmpty()) lineOutput = i.toString()
@@ -35,4 +36,5 @@ class FizzBuzz(
         }
     }
 }
+
 

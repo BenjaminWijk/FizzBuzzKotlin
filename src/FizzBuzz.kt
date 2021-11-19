@@ -6,7 +6,7 @@ class FizzBuzz(
 ) {
 
     init {
-        if (gameLength < 1) throw IllegalArgumentException("gameLength must be larger than 1")
+        if (gameLength < 1) throw IllegalArgumentException("gameLength must be larger than 0")
     }
 
     companion object {
